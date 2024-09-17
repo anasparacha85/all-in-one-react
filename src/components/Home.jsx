@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div className='home h-screen text-center'>
       <div className=" h-5/6 w-full text-center text-gray-600"
-        style={{ backgroundImage: `url(${AboutBack})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        style={{ backgroundImage: `url(${AboutBack})`, backgroundSize: 'cover', backgroundPosition: 'center' ,opacity:'90%'}}>
         <Head />
         <h4 className=' mt-16 text-xl text-gray-300' >Welcome to The Clothing Shop</h4>
         <h1 className=' Font-Nerko mt-3 text-4xl  font-extrabold text-white'>Wear your confidence like you wear your favorite outfit.</h1>

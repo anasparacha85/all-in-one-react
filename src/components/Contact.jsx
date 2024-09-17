@@ -4,6 +4,8 @@ import Footer from './Footer'
 import Collections from './Collections'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import bigbackk from '../../public/bigbackk.jpg'
+
 
 const Contact = () => {
     const {register,formState:{errors,isSubmitting},setError,handleSubmit}=useForm()
@@ -13,7 +15,7 @@ console.log(data)
   return (
     <div >
      <div className='Contact h-screen '>
-      <div className=" h-5/6 w-screen text-center text-gray-600 bg-[url('bigbackk.jpg')] bg-cover bg-center"  >
+      <div className=" h-5/6 w-screen text-center text-gray-600 " style={{backgroundImage:`url(${bigbackk})`,backgroundSize:'cover',backgroundPositionY:'center'}} >
         <Head/>
         <h4 className=' mt-16 text-xl text-gray-300' >Contact Us</h4>
         <h1 className=' Font-Nerko mt-3 text-4xl  font-extrabold text-white'>Get in Touch with Our Experts Team</h1>

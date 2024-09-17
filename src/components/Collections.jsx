@@ -4,6 +4,7 @@ import './indexx.css'
 import Footer from './Footer'
 import Card from './Card'
 import {Link,NavLink} from'react-router-dom'
+import Homeback from '../../public/Homeback.jpg'
 
 
 import useCategories from '../hooks/useCategories'
@@ -28,7 +29,7 @@ const Collections = () => {
     
   return (
     <div className='Collection h-screen text-center'>
-      <div className=" h-5/6 w-full text-center text-gray-600 bg-[url('Homeback.jpg')] bg-cover bg-center"  >
+      <div className=" h-5/6 w-full text-center text-gray-600 " style={{backgroundImage:`url(${Homeback})`,backgroundSize:'cover',backgroundPosition:'center',opacity:'90%'}} >
         <Head/>
         <h4 className=' mt-16 text-xl text-gray-300' >Our Collections</h4>
         <h1 className='w-4/6 ml-72 Font-Nerko mt-3 text-4xl  font-extrabold text-white'>A great collection is more than just a gathering of garments; it<sup>'</sup>s a reflection of the dreams and desires of its creator.</h1>
