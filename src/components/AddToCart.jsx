@@ -15,7 +15,11 @@ const AddToCart = () => {
   const [price, setPrice] = useState(null);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
-  const prev = useRef(count)
+  const [headcount, setheadcount] = useState(0)
+  const styleref = useRef()
+  const onCartButtonClick=()=>{
+styleref.current.style.opacity="100"
+  }
  
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -40,12 +44,16 @@ const AddToCart = () => {
   const increaseCount = useCallback(() => {
     
     setCount(prevCount => prevCount + 1);
+    
+   
   const  selected=categories.find((item)=>item.title==selectedCategory);
     
     
     if(count===1 || count>1){
 
       setPrice(selected.price*(count+1))
+     
+
       setValue('quantity',count+1)
       setValue('Price',selected.price*(count+1))
       
@@ -62,19 +70,25 @@ const AddToCart = () => {
   const [product, setproduct] = useState('')
   const [prodprice, setprodprice] = useState(null)
   const [prodquantity, setprodquantity] = useState(null)
-  const [currency, setcurrency] = useState('usd')
-  const onprodchange=(e)=>{
-setproduct(e.target.value)
-
+  const [currency, setcurrency] = useState('pkr')
+  const [convertedcurrency,setconvertedcurrency]=useState('usd')
+  const [convertedprice, setconvertedprice] = useState(null)
+  
+  
+  
+  const onconvertedchange=(e)=>{
+    setconvertedprice(e.target.value)
   }
+ 
   const onpricechange=(e)=>{
 setprodprice(e.target.value)
   }
   const onquantitychange=(e)=>{
     setprodquantity(e.target.value)  }
 
-  const onsecondsubmit=(data)=>{
-    console.log(data)
+  const onsecondsubmit=()=>{
+
+  
 alert('Your order has been proceeded')
   }
     
@@ -82,8 +96,12 @@ alert('Your order has been proceeded')
 
     console.log(data);
     setproduct(productName)
-    setprodprice(price)
+    setprodprice(Number(price))
+    if(count!=0){
     setprodquantity(count)
+    setheadcount(count)
+    
+    }
     
   };
   const fetcheddata=useFetch(currency)
@@ -92,11 +110,22 @@ alert('Your order has been proceeded')
   const curencyoptions=Object.keys(fetcheddata)
   console.log(curencyoptions);
   
+  const oncurrencychange=(e)=>{
+    setconvertedcurrency(e.target.value)
+    setconvertedprice(prodprice*fetcheddata[convertedcurrency])
+      }
+      const onprodchange=(e)=>{
+    setproduct(e.target.value)
+    
+      }
+      console.log(300*fetcheddata[convertedcurrency]);
+      
+  
         
     return (
         <div>
             <div className="header w-screen bg-gray-500">
-                <Head />
+                <Head onCartButtonClick={onCartButtonClick} count={headcount}  />
                </div>
                <div className="forms flex justify-between w-screen ">
                <form   onSubmit={handleSubmit(onSubmit)}>
@@ -138,7 +167,9 @@ alert('Your order has been proceeded')
             type="number"
             id="price"
             value={price || ''}
-            onChange={(e) => setPrice(Number(e.target.value))}
+            onChange={(e) => {setPrice(Number(e.target.value))
+             }
+            }
             {...register('Price', { required: { value: true, message: 'This field is required' } })}
             className="mt-1 block w-full rounded-md p-2 bg-transparent border-transparent"
           />
@@ -151,7 +182,7 @@ alert('Your order has been proceeded')
             type="button"
             onClick={increaseCount}
             className="p-2 bg-gray-300 rounded-md hover:bg-gray-400"
-            ref={prev}
+            
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24} fill="none">
               <path d="M12 4V20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -163,7 +194,7 @@ alert('Your order has been proceeded')
               type="number"
               className="w-16"
               onChange={(e) => {setCount(Number(e.target.value))
-                
+               
               }}
               value={count}
               {...register('quantity')}
@@ -188,9 +219,18 @@ alert('Your order has been proceeded')
         />
       </div>
     </form>
+    <div ref={styleref} className='h-screen w-2/6 bg-gray-100 border-2 text-center    opacity-0 mr-4'>
+    <div className="heading flex justify-between h-14 bg-gray-100 text-gray-600">
+      <div className="shopp text-xl font-serif ">Shopping Cart</div>
+      <button className='pt-1 pb-1 pl-1 pr-1 ' onClick={()=>styleref.current.style.opacity="0"}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24} color={"#000000"} fill={"none"}>
+    <path d="M18 6L12 12M12 12L6 18M12 12L18 18M12 12L6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+</svg></button>
+    </div>
     <form action="" onSubmit={handleSubmit(onsecondsubmit)}>
-    <ConfirmCart prodprice={prodprice} prodquantity={prodquantity } product={product} handleprodChange={onprodchange} handlepriceChange={onpricechange} handlequanChange={onquantitychange}/>
+    <ConfirmCart prodprice={prodprice} prodquantity={prodquantity } product={product} handleprodChange={onprodchange} handlepriceChange={onpricechange} handlequanChange={onquantitychange} options={curencyoptions} ConvertedCurrency={convertedcurrency} handleoptionChange={oncurrencychange} convertedprice={convertedprice} handleconvertedChange={onconvertedchange}/>
+    
     </form>
+    </div>
     </div>
    
             
