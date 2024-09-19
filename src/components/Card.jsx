@@ -4,7 +4,7 @@ import { Link,NavLink } from 'react-router-dom';
 
 const Card = ({ imageSrc, heading, subheading, price }) => {
   return (
-    <div className="w-80 mx-auto bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden group relative">
+    <div className="w-80 mx-auto bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden group relative ">
       {/* Button Section */}
       
       <button

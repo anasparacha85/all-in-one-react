@@ -7,6 +7,7 @@ import Home, { brandLoader } from './components/Home.jsx'
 import Collections from './components/Collections.jsx'
 import Contact from './components/Contact.jsx'
 import AddToCart from './components/AddToCart.jsx'
+import About from './components/About.jsx'
 
 const router=createBrowserRouter(
   createRoutesFromElements(
@@ -14,6 +15,7 @@ const router=createBrowserRouter(
   <Route loader={brandLoader}  path='' element={<Home/>} />
   <Route path='Collections' element={<Collections/>}/>
   <Route path='Contact' element={<Contact/>}/>
+  <Route path='About' element={<About/>}/>
   <Route path='AddToCart' element={<AddToCart/>}/>
   </Route>
 ))

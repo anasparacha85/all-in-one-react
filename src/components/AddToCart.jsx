@@ -86,11 +86,7 @@ setprodprice(e.target.value)
   const onquantitychange=(e)=>{
     setprodquantity(e.target.value)  }
 
-  const onsecondsubmit=()=>{
-
   
-alert('Your order has been proceeded')
-  }
     
   const onSubmit = (data) => {
 
@@ -226,10 +222,10 @@ alert('Your order has been proceeded')
     <path d="M18 6L12 12M12 12L6 18M12 12L18 18M12 12L6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
 </svg></button>
     </div>
-    <form action="" onSubmit={handleSubmit(onsecondsubmit)}>
+  
     <ConfirmCart prodprice={prodprice} prodquantity={prodquantity } product={product} handleprodChange={onprodchange} handlepriceChange={onpricechange} handlequanChange={onquantitychange} options={curencyoptions} ConvertedCurrency={convertedcurrency} handleoptionChange={oncurrencychange} convertedprice={convertedprice} handleconvertedChange={onconvertedchange}/>
     
-    </form>
+   
     </div>
     </div>
    

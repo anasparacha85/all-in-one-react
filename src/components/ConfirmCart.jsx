@@ -4,12 +4,16 @@ import { useForm } from 'react-hook-form'
 
 const ConfirmCart = ({product,handleprodChange,prodprice,handlepriceChange,prodquantity,handlequanChange,ConvertedCurrency,handleoptionChange,options=[],convertedprice,handleconvertedChange}) => {
     const{register,setError,handleSubmit,formState:{errors,isSubmitting}}=useForm()
+    const onsubmit=(data)=>{
+        console.log((data));
+        
+    }
     if(product!='' && prodprice!=null && prodquantity!=null ){
     return (
-      
+     
     <div className="w-5/6 mt-10 mr-7 p-6 h-4/5  rounded-lg  ">
   
-  
+  <form onSubmit={handleSubmit(onsubmit)}>
         <div className="mb-4 flex gap-8">
             <label htmlFor="product" className="block text-sm font-medium text-gray-700 mt-3">Product:</label>
             <input
@@ -88,7 +92,7 @@ const ConfirmCart = ({product,handleprodChange,prodprice,handlepriceChange,prodq
             Confirm Order
         </button>
         
-  
+  </form>
 </div>
 
   )
