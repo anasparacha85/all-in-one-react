@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SliderCard = ({imageSrc,heading}) => {
+const SliderCard = ({imageSrc}) => {
   return (
-    <div className="w-60 h-52 bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden inline-block ml-3">
+    <div className="lg:w-60 lg:h-52 md:w-40 md:h-36 sm:w-36 sm:h-32 bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden inline-block ml-3">
        <img
         className="w-full h-48 object-cover "
         src={imageSrc}
@@ -10,10 +10,7 @@ const SliderCard = ({imageSrc,heading}) => {
       />
 
       {/* Content Section */}
-      <div className="p-4">
-        {/* Heading */}
-        <h2 className="text-xl font-semibold text-gray-800">{heading}</h2>
-        </div>
+     
         </div>
   )
 }

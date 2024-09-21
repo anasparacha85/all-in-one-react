@@ -4,12 +4,12 @@ import { Link,NavLink } from 'react-router-dom';
 
 const Card = ({ imageSrc, heading, subheading, price }) => {
   return (
-    <div className="w-80 mx-auto bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden group relative  ">
+    <div className="lg:w-80 lg:h-auto mx-auto bg-white border border-gray-200 rounded-lg shadow-md lg-overflow-hidden group relative md:w-48 md:h-[280px] sm:w-40 sm:h-[220px] ">
       {/* Button Section */}
       
       <button
         id="btn"
-        className="p-2 absolute top-4 right-16  bg-black  translate-y-8 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out  "
+        className="p-2 absolute top-4 right-16  bg-black  translate-y-8 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out md:hover:opacity-100 "
       >
         <Link to='/AddToCart'>
         <svg
@@ -47,7 +47,7 @@ const Card = ({ imageSrc, heading, subheading, price }) => {
 
       {/* Image Section */}
       <img
-        className="w-full h-48 object-cover hover:h-52 transition-all duration-500 ease-in-out "
+        className="w-full lg:h-48 object-cover hover:h-52 transition-all duration-500 ease-in-out md:h-[170px] sm:h-[130px]"
         src={imageSrc}
         alt="No Pic"
       />
@@ -55,13 +55,13 @@ const Card = ({ imageSrc, heading, subheading, price }) => {
       {/* Content Section */}
       <div className="p-4">
         {/* Heading */}
-        <h2 className="text-2xl font-semibold text-gray-800 " >{heading}</h2>
+        <h2 className="lg:text-2xl lg:mt-auto  font-semibold text-gray-800 md:text-[8px] md:mt-0 sm:text-[7px]" >{heading}</h2>
 
         {/* Subheading */}
-        <p className="text-gray-600 mt-0.5  ">{subheading}</p>
+        <p className="text-gray-600 mt-0.5 md:hidden lg:block sm:hidden ">{subheading}</p>
 
         {/* Price */}
-        <p className="mt-1 text-xl font-bold text-gray-900 ">{price}</p>
+        <p className="mt-1 lg:text-xl font-bold text-gray-900 md:text-[10px] md:relative md:bottom-1 sm:text-[8px]">{price}</p>
       </div>
     </div>
   );

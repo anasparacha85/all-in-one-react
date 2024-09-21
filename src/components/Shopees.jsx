@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 const Shopees = ({imagsrc,title,paragraph}) => {
   return (
-    <div className="flex h-[600px] bg-gray-800 p-6">
+    <div className="flex lg:h-[600px] bg-gray-800 p-6 md:h-[400px] sm:h-[340px]">
     {/* Left div with image */}
-    <div className="w-2/5 h-[500px] mt-10 " >
+    <div className="lg:w-2/5 lg:h-[500px] mt-10  md:w-[200px] md:h-[300px] sm:w-[160px] sm:h-[240px]" >
       <img 
         src={imagsrc}
         alt="Placeholder" 
@@ -15,10 +15,10 @@ const Shopees = ({imagsrc,title,paragraph}) => {
     </div>
     
     {/* Right div with text */}
-    <div className="w-1/2 flex flex-col justify-center pl-6">
-      <h4 className="text-lg font-medium text-gray-400">{title}</h4>
-      <h2 className="text-4xl font-bold text-gray-100 mt-2 Font-Nerko">{paragraph}</h2>
-     <button className="mt-6 ml-72 p-2 w-28 h-14 pl-2 pr-2 pb-2 bg-gray-500 text-white  rounded-xl  hover:bg-gray-400">
+    <div className="lg:w-1/2 flex flex-col justify-center pl-6 md:w-[400px] sm:w-[330px]">
+      <h4 className="lg:text-lg font-medium text-gray-400 md:text-[8px] sm:text-[8px]">{title}</h4>
+      <h2 className="lg:text-4xl font-bold text-gray-100 mt-2 Font-Nerko md:text-[24px] sm:text-[18px]">{paragraph}</h2>
+     <button className="mt-6 lg:ml-72 lg:pt-2 lg:w-28 lg:text-[14px] lg:pl-2 lg:pr-2 lg:pb-2 bg-gray-500 text-white  rounded-xl  hover:bg-gray-400 md:ml-36 md:w-20 md:p-1 md:text-[8px] sm:ml-[88px] sm:w-16 sm:p-2 sm:text-[6px] ">
      <Link to='/Collections'>shop Now</Link>
       </button>
     </div>
