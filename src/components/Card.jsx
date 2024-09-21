@@ -4,7 +4,7 @@ import { Link,NavLink } from 'react-router-dom';
 
 const Card = ({ imageSrc, heading, subheading, price }) => {
   return (
-    <div className="lg:w-80 lg:h-auto mx-auto bg-white border border-gray-200 rounded-lg shadow-md lg-overflow-hidden group relative md:w-48 md:h-[280px] sm:w-40 sm:h-[220px] ">
+    <div className="lg:w-80 lg:h-auto mx-auto bg-white border border-gray-200 rounded-lg shadow-md lg-overflow-hidden group relative md:w-48 md:h-[280px] sm:w-[155px] sm:h-[200px] ">
       {/* Button Section */}
       
       <button
@@ -47,7 +47,7 @@ const Card = ({ imageSrc, heading, subheading, price }) => {
 
       {/* Image Section */}
       <img
-        className="w-full lg:h-48 object-cover hover:h-52 transition-all duration-500 ease-in-out md:h-[170px] sm:h-[130px]"
+        className="w-full lg:h-48 object-cover hover:h-52 transition-all duration-500 ease-in-out md:h-[170px] sm:h-[120px]"
         src={imageSrc}
         alt="No Pic"
       />
@@ -55,7 +55,7 @@ const Card = ({ imageSrc, heading, subheading, price }) => {
       {/* Content Section */}
       <div className="p-4">
         {/* Heading */}
-        <h2 className="lg:text-2xl lg:mt-auto  font-semibold text-gray-800 md:text-[8px] md:mt-0 sm:text-[7px]" >{heading}</h2>
+        <h2 className="lg:text-2xl lg:mt-auto  font-semibold text-gray-800 md:text-[8px] md:mt-0 sm:text-[6.5px]" >{heading}</h2>
 
         {/* Subheading */}
         <p className="text-gray-600 mt-0.5 md:hidden lg:block sm:hidden ">{subheading}</p>
