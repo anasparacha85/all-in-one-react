@@ -1,22 +1,23 @@
 import React from 'react'
 import Head from './Head'
-import aboutbackground from '../../public/aboutbackground.jpg'
+
 import { Link,NavLink } from 'react-router-dom'
 import Shopees from './Shopees'
 import mancamera from '../../public/mancamera.jpg'
 import Footer from './Footer'
-import AboutBachk from '../../public/AboutBachk.jpg'
+
 import randomimg from '../../public/randomimg.jpg'
 import piccc from '../../public/piccc.jpg'
 import imagecamera from '../../public/imagecamera.jpg'
 import Text from './Text'
 import lastback from '../../public/lastback.jpg'
+import aboutkaback from '../../public/aboutkaback.jpg'
 const About = () => {
   return (
     <div>
        <div className='home h-screen text-center'>
       <div className=" h-5/6 w-full text-center text-gray-600"
-        style={{ backgroundImage: `url(${AboutBachk})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: '88%' }}>
+        style={{backgroundImage: `url(${aboutkaback})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: '88%' }}>
         <Head />
         <h4 className=' mt-16 text-xl text-gray-100  font-bold' >About Us</h4>
         <h1 className=' Font-Nerko mt-3 text-5xl  font-extrabold text-gray-300'>Embarking on the Path to Our Dreams.</h1>
