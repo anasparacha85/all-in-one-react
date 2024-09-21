@@ -78,7 +78,7 @@ const Home = () => {
       <div className="lg:w-1/2 flex flex-col justify-center pl-6 md:w-[400px] sm:w-[300px]">
         <h4 className="lg:text-lg font-medium text-gray-400 md:text-[8px] sm:text-[6px]">SPECIAL OFFER</h4>
         <h2 className="lg:text-4xl font-bold text-gray-100 mt-2 Font-Nerko md:text-[24px] sm:text-[15px]">Your shopping Journey Begins Here: Get 20% Off Your First Order!</h2>
-       <button className="mt-6 lg:ml-72 lg:pt-2 lg:w-28 lg:text-[14px] lg:pl-2 lg:pr-2 lg:pb-2 bg-gray-500 text-white  rounded-xl  hover:bg-gray-400 md:ml-32 md:w-20 md:p-1 md:text-[8px] sm:text-[6px] sm:w-12 sm:p-1 sm:ml-[52px] ">
+       <button className="mt-6 lg:ml-72 lg:pt-2 lg:w-28 lg:text-[14px] lg:pl-2 lg:pr-2 lg:pb-2 bg-gray-500 text-white  rounded-xl  hover:bg-gray-400 md:ml-32 md:w-20 md:p-1 md:text-[8px] sm:text-[6px] sm:w-12 sm:p-1 sm:ml-[58px] ">
        <Link to='/Collections'>shop Now</Link>
         </button>
       </div>

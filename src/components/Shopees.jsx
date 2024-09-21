@@ -18,7 +18,7 @@ const Shopees = ({imagsrc,title,paragraph}) => {
     <div className="lg:w-1/2 flex flex-col justify-center pl-6 md:w-[400px] sm:w-[300px]">
       <h4 className="lg:text-lg font-medium text-gray-400 md:text-[8px] sm:text-[6px]">{title}</h4>
       <h2 className="lg:text-4xl font-bold text-gray-100 mt-2 Font-Nerko md:text-[24px] sm:text-[15px]">{paragraph}</h2>
-     <button className="mt-6 lg:ml-72 lg:pt-2 lg:w-28 lg:text-[14px] lg:pl-2 lg:pr-2 lg:pb-2 bg-gray-500 text-white  rounded-xl  hover:bg-gray-400 md:ml-36 md:w-20 md:p-1 md:text-[8px] sm:ml-[52px] sm:w-14 sm:p-2 sm:text-[6px] ">
+     <button className="mt-6 lg:ml-72 lg:pt-2 lg:w-28 lg:text-[14px] lg:pl-2 lg:pr-2 lg:pb-2 bg-gray-500 text-white  rounded-xl  hover:bg-gray-400 md:ml-36 md:w-20 md:p-1 md:text-[8px] sm:ml-[58px] sm:w-14 sm:p-2 sm:text-[6px] ">
      <Link to='/Collections'>shop Now</Link>
       </button>
     </div>

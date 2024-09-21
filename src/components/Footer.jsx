@@ -16,7 +16,7 @@ const Footer = () => {
             
             <div className="text-sm mb-4">
               <p className='text-gray-500 lg-text-lg md:text-sm sm:text-[8px]'>Email: <Link to="mailto:contact@mywebsite.com" className="hover:underline text-gray-500">amiranas761@gmail.com</Link></p>
-              <p className='text-gray-500 lg-text-lg md:text-sm sm:text-[8px]'>Phone:<Link to="+923212167055">(+92321)2167055</Link> </p>
+              <p className='text-gray-500 lg-text-lg md:text-sm sm:text-[8px]'>Phone:(+92321)2167055 </p>
             </div>
             </nav>
           </div>
