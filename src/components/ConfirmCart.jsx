@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 const ConfirmCart = ({product,handleprodChange,prodprice,handlepriceChange,prodquantity,handlequanChange,ConvertedCurrency,handleoptionChange,options=[],convertedprice,handleconvertedChange}) => {
     const{register,setError,handleSubmit,formState:{errors,isSubmitting}}=useForm()
     const onsubmit=(data)=>{
+        alert('Your Order Has been Proceed')
         console.log((data));
         
     }
@@ -65,6 +66,7 @@ const ConfirmCart = ({product,handleprodChange,prodprice,handlepriceChange,prodq
                   onChange={handleoptionChange}
                 className="mt-1 block w-20  px-3 py-2 border-2 border-gray-100 rounded-md  focus:outline-none focus:ring-1 focus:ring-gray-500 sm:text-sm"
             >
+                select
                {options.map((items)=>{
                return <option value={items} key={items}>{items}</option>
                }

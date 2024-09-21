@@ -70,8 +70,8 @@ styleref.current.style.opacity="100"
   const [product, setproduct] = useState('')
   const [prodprice, setprodprice] = useState(null)
   const [prodquantity, setprodquantity] = useState(null)
-  const [currency, setcurrency] = useState('pkr')
-  const [convertedcurrency,setconvertedcurrency]=useState('usd')
+  const [currency, setcurrency] = useState('usdc')
+  const [convertedcurrency,setconvertedcurrency]=useState('pkr')
   const [convertedprice, setconvertedprice] = useState(null)
   
   
