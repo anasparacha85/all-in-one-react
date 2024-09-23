@@ -2,13 +2,9 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 
 
-const ConfirmCart = ({product,handleprodChange,prodprice,handlepriceChange,prodquantity,handlequanChange,ConvertedCurrency,handleoptionChange,options=[],convertedprice,handleconvertedChange,handleclick ,styleref}) => {
+const ConfirmCart = ({product,handleprodChange,prodprice,handlepriceChange,prodquantity,handlequanChange,ConvertedCurrency,handleoptionChange,options=[],convertedprice,handleconvertedChange,handleclick ,styleref,onsubmit}) => {
     const{register,setError,handleSubmit,formState:{errors,isSubmitting}}=useForm()
-    const onsubmit=(data)=>{
-        alert('Your Order Has been Proceed')
-        console.log((data));
-        
-    }
+   
     if(product!='' && prodprice!=null && prodquantity!=null ){
     return (
         <div ref={styleref} className='lg:h-screen lg:w-2/6 sm:w-[280px] bg-gray-100 border-2 text-center  lg:-translate-y-[84px]  sm:block  sm:-translate-y-0 sm:mt-5 sm:ml-4 lg:ml-0 lg:hidden lg:mr-3  sm:h-[300px]'>

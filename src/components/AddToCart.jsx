@@ -123,7 +123,18 @@ styleref.current.style.display="block"
 styleref.current.style.transform=" transform: translateX(0px)"
   }
  
-        
+  const onsubmit=(data)=>{
+    alert('Your Order Has been Proceed')
+    console.log((data));
+    setprodprice(null)
+   setproduct('')
+    setprodquantity(null)
+    setPrice(null)
+    setProductName('')
+    setconvertedprice(null)
+    setCount(0)
+    
+}  
     return (
         <div>
             <div className="header w-screen bg-gray-500">
@@ -223,7 +234,7 @@ styleref.current.style.transform=" transform: translateX(0px)"
     </form>
     
   
-     <ConfirmCart prodprice={prodprice} prodquantity={prodquantity } product={product} handleprodChange={onprodchange} handlepriceChange={onpricechange} handlequanChange={onquantitychange} options={curencyoptions} ConvertedCurrency={convertedcurrency} handleoptionChange={oncurrencychange} convertedprice={convertedprice} handleconvertedChange={onconvertedchange} handleclick={handleclick} styleref={styleref}/> 
+     <ConfirmCart onsubmit={onsubmit} prodprice={prodprice} prodquantity={prodquantity } product={product} handleprodChange={onprodchange} handlepriceChange={onpricechange} handlequanChange={onquantitychange} options={curencyoptions} ConvertedCurrency={convertedcurrency} handleoptionChange={oncurrencychange} convertedprice={convertedprice} handleconvertedChange={onconvertedchange} handleclick={handleclick} styleref={styleref}/> 
     
    
     

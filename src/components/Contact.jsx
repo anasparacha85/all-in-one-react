@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Head from './Head'
 import Footer from './Footer'
 import Collections from './Collections'
@@ -9,8 +9,20 @@ import bigbackk from '../../public/bigbackk.jpg'
 
 const Contact = () => {
     const {register,formState:{errors,isSubmitting},setError,handleSubmit}=useForm()
+    const [first, setfirst] = useState(null)
+    const [last, setlast] = useState(null)
+    const [email, setemail] = useState(null)
+    const [text, settext] = useState(null)
+    const onfirstchange=(e)=>{
+      setfirst(e.target.value)
+    }
     const onSubmit=(data)=>{
 console.log(data)
+alert('your form has been submitted')
+setemail('')
+settext('')
+setfirst('')
+setlast('')
     }
   return (
     <div >
@@ -54,23 +66,23 @@ console.log(data)
               <h4 className='lg:text-lg Font-bold mb-3 sm:text-[11px]  sm:ml-3 lg:ml-0 '>Name <sup className='text-red-800'>*</sup></h4>
               <div className="name flex justify-between mb-4">
                 <div className="first grid grid-cols-1 ml-3">
-                <input  type="text" className='h-10 lg:w-64 sm:w-32 rounded-sm border-b-2  hover:border-gray-600 ease-in-out duration-75  border-solid' {...register("FirstName",{required:{value:true,message:'Required Field'},minLength:{value:1,message:'atleast 1 characters'},maxLength:{value:16,message:'Not more than 16 characters'}})} />
+                <input value={first} onChange={onfirstchange} type="text" className='h-10 lg:w-64 sm:w-32 rounded-sm border-b-2  hover:border-gray-600 ease-in-out duration-75  border-solid' {...register("FirstName",{required:{value:true,message:'Required Field'},minLength:{value:1,message:'atleast 1 characters'},maxLength:{value:16,message:'Not more than 16 characters'}})} />
                 <label htmlFor="First" className='text-gray-400 lg:text-lg sm:text-[11px]'>First</label>
                 {errors.FirstName&& <span className='text-red-600'>{errors.FirstName.message}</span>}
                 </div>
                 <div className="last grid grid-cols-1 ml-3">
-                <input type="text"className='h-10 lg:w-64 sm:w-32 rounded-sm border-b-2 hover:border-gray-600 ease-in-out duration-75 border-solid' {...register("LastName",{required:{value:true,message:'Required Field' },minLength:{value:1,message:'alteast 1 character'},maxLength:{value:16,message:'Not More than 16 charaters'}})}/>
+                <input value={last} onChange={(e)=>setlast(e.target.value)} type="text"className='h-10 lg:w-64 sm:w-32 rounded-sm border-b-2 hover:border-gray-600 ease-in-out duration-75 border-solid' {...register("LastName",{required:{value:true,message:'Required Field' },minLength:{value:1,message:'alteast 1 character'},maxLength:{value:16,message:'Not More than 16 charaters'}})}/>
                 <label htmlFor="last" className='text-gray-400 lg:text-lg sm:text-[11px] '>Last</label>
                 {errors.LastName&& <span className='text-red-600'>{errors.LastName.message}</span>}
                 </div>
                 <br />
                 </div>
                 <h4 className='lg:text-lg Font-bold mb-3 sm:text-[11px]  sm:ml-3 lg:ml-0 '>Email <sup className='text-red-800'>*</sup></h4>
-                <input  type="text" className='h-10 lg:w-11/12 sm:w-[300px] rounded-sm border-b-2 hover:border-gray-600 ease-in-out duration-75 border-solid mb-3 ml-3' {...register("Email",{required:{value:true,message:'Required Field'  },minLength:{value:12,message:'invalid Email Address'},maxLength:{value:30,message:'invalid Email Address'}})} />
+                <input value={email} onChange={(e)=>setemail(e.target.value)} type="text" className='h-10 lg:w-11/12 sm:w-[300px] rounded-sm border-b-2 hover:border-gray-600 ease-in-out duration-75 border-solid mb-3 ml-3' {...register("Email",{required:{value:true,message:'Required Field'  },minLength:{value:12,message:'invalid Email Address'},maxLength:{value:30,message:'invalid Email Address'}})} />
                 {errors.Email&&<span className='text-red-600'>{errors.Email.message}</span>}
 <br />
                 <h4 className='lg:text-lg Font-bold mb-3 sm:text-[11px] sm:ml-3 lg:ml-0'>Comment or Message <sup className='text-red-800'>*</sup></h4>
-                <textarea className='lg:h-32 sm:h-20 w-11/12 rounded-sm border-b-2 border-l-2 border-r-2  hover:border-gray-600 ease-in-out duration-75 border-solid mb-3 ml-3'></textarea>
+                <textarea value={text} onChange={(e)=>settext(e.target.value)} className='lg:h-32 sm:h-20 w-11/12 rounded-sm border-b-2 border-l-2 border-r-2  hover:border-gray-600 ease-in-out duration-75 border-solid mb-3 ml-3'></textarea>
 
                 <input type="submit" value="SUBMIT" className='bg-gray-600 cursor-pointer text-white lg:pl-4 lg:pr-4 lg:pb-2 lg:pt-2 sm:pl-2 sm:pr-2 sm:pt-1 sm:pb-1 rounded-xl ml-2 hover:bg-gray-400 sm:text-[11px] lg:text-lg'   />
             </form>
