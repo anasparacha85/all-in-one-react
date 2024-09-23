@@ -1,11 +1,14 @@
-import React , { useState } from 'react';
+import React , { useRef, useState } from 'react';
 import { NavLink ,Link} from 'react-router-dom';
 import ConfirmCart from './ConfirmCart';
 
 
 
+
 const Head = ({ onCartButtonClick,count }) => {
   const [isOpen, setIsOpen] = useState(false);
+ 
+  
   
 
   return (
@@ -38,7 +41,7 @@ const Head = ({ onCartButtonClick,count }) => {
        <button onClick={onCartButtonClick} className='mr-4 cursor-pointer'
       >
         {count}
-       <NavLink to="/AddToCart">
+        <NavLink to="/AddToCart"> 
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24} color={"#ffffff"} fill={"none"} className={`hover:text-gray-300`}>
               <path d="M8 16H15.2632C19.7508 16 20.4333 13.1808 21.261 9.06908C21.4998 7.88311 21.6192 7.29013 21.3321 6.89507C21.045 6.5 20.4947 6.5 19.3941 6.5H6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
               <path d="M8 16L5.37873 3.51493C5.15615 2.62459 4.35618 2 3.43845 2H2.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
@@ -46,10 +49,11 @@ const Head = ({ onCartButtonClick,count }) => {
               <circle cx="10.5" cy="20.5" r="1.5" stroke="currentColor" strokeWidth="1.5"/>
               <circle cx="17.5" cy="20.5" r="1.5" stroke="currentColor" strokeWidth="1.5"/>
             </svg>
-            </NavLink>
+             </NavLink> 
           </button>
         
         </div>
+       
       </nav>
     </div>
   );

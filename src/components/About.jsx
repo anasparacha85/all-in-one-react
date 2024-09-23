@@ -16,7 +16,7 @@ const About = () => {
   return (
     <div>
        <div className='home h-screen text-center'>
-      <div className=" h-5/6 w-full text-center text-gray-600 sm:h-[400px]"
+      <div className=" lg:h-5/6 w-full text-center text-gray-600 sm:h-[400px]"
         style={{backgroundImage: `url(${aboutkaback})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: '88%' }}>
         <Head />
         <h4 className=' mt-16 lg:text-xl text-gray-300 md:text-lg sm:text-[10px]' >About Us</h4>
@@ -25,7 +25,7 @@ const About = () => {
        
       </div>
     </div>
-    <div className="flex h-[550px] bg-white md:h-[480px] gap-16 sm:h-[400px]">
+    <div className="flex lg:h-[550px] bg-white md:h-[480px] lg:-translate-y-0 gap-16 sm:h-[400px] sm:-translate-y-16">
       {/* Left Div for images */}
       <div className="lg:w-1/2 flex items-center justify-around lg:p-4 lg:ml-10 md:w-[400px] md:ml-5 md:p-1 sm:w-[320px]">
       <img src={piccc} alt="Second" className="lg:h-[400px]  object-cover lg:w-[280px] md:h-[300px] md:w-[180px] sm:h-[230px] sm-w-[160px]" style={{borderRadius:'56% 44% 94% 6% / 33% 100% 0% 67%'}} />

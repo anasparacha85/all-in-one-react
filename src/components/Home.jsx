@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect, useRef} from 'react'
 import Head from './Head'
 import './indexx.css'
 import Footer from './Footer'
@@ -12,6 +12,7 @@ import imagecamera from '../../public/imagecamera.jpg'
 import mancamera from '../../public/mancamera.jpg'
 import SliderCard from './SliderCard'
 import Shopees from './Shopees'
+import ConfirmCart from './ConfirmCart'
 
 const Home = () => {
   const data = useLoaderData();
@@ -26,13 +27,18 @@ const Home = () => {
    })
   }, [])
   console.log(bigdata);
-  
+  const onCartButtonClick=()=>{
+    styleref.current.style.display="block"
+    styleref.current.style.transform=" transform: translateX(0px)"
+      }
+      const styleref=useRef()
+ 
   
   return (
     <div className='home h-screen text-center'>
       <div className=" h-5/6 w-full text-center text-gray-600"
         style={{ backgroundImage: `url(${AboutBack})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: '90%' }}>
-        <Head />
+        <Head onCartButtonClick={onCartButtonClick}  />
         <h4 className=' mt-16 lg:text-xl text-gray-300 md:text-lg sm:text-[10px]' >Welcome to The Clothing Shop</h4>
         <h1 className=' Font-Nerko mt-3 lg:text-4xl  font-extrabold text-white md:text-2xl sm:text-[17px]'>Wear your confidence like you wear your favorite outfit.</h1>
         <p className='text-gray-300 w-2/4 h-12 lg:ml-80 pl-8 lg:mt-14 lg:text-lg md:text-sm md:ml-32 sm:hidden'>Let the beauty of fresh blooms transform your space into a haven of color and fragrance. Explore exquisite arrangements that bring elegance and joy to every moment of your life</p>
@@ -50,7 +56,7 @@ const Home = () => {
         <p className='lg:text-lg mt-6 md:text-[9px] sm:text-[6px]'>Share some details here. This is Flexible section where you can share anything you want.</p>
         <br />
         <br />
-        <div className="cards grid grid-cols-3 gap-5 w-full md:pl-4 md:pr-3  sm:grid-cols-2">
+        <div className="cards grid lg:grid-cols-3 gap-5 w-full md:pl-4 md:pr-3  sm:grid-cols-2">
           {data.map((items) => {
 
 

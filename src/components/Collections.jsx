@@ -44,7 +44,7 @@ const Collections = () => {
     <br />
     <br />
     
-    <div className="cards grid grid-cols-3 gap-5 w-full md:pl-4 md:pr-3  sm:grid-cols-2">
+    <div className="cards grid lg:grid-cols-3 gap-5 w-full md:pl-4 md:pr-3  sm:grid-cols-2">
         {menbrands.map((items)=>{
             return <Card key={items.id} imageSrc={items.image} heading={items.title} subheading={items.description.slice(0,76)} price={`$${items.price} dollars`}/>
         })}
@@ -58,7 +58,7 @@ const Collections = () => {
 
     <br />
     <br />
-    <div className="cards grid grid-cols-3 gap-5 w-full md:pl-4 md:pr-3  sm:grid-cols-2 ">
+    <div className="cards grid lg:grid-cols-3 gap-5 w-full md:pl-4 md:pr-3  sm:grid-cols-2 ">
         {womenbrand.map((items)=>{
             return   <Card key={items.id}  imageSrc={items.image} heading={items.title.slice(0,25)} subheading={items.description.slice(0,76)} price={`$${items.price} dollars`}/>
         })}
@@ -73,7 +73,7 @@ const Collections = () => {
   
     <br />
     <br />
-    <div className="cards grid grid-cols-3 gap-5 w-full md:pl-4 md:pr-3  sm:grid-cols-2  ">
+    <div className="cards grid lg:grid-cols-3 gap-5 w-full md:pl-4 md:pr-3  sm:grid-cols-2  ">
     {jwellarybrands.map((items)=>{
             return   <Card key={items.id}  imageSrc={items.image} heading={items.title.slice(0,20)} subheading={items.description.slice(0,76)} price={`$${items.price} dollars`}/>
         })}
@@ -86,7 +86,7 @@ const Collections = () => {
     
     <br />
     <br />
-    <div className="cards grid grid-cols-3 gap-5 w-full md:pl-4 md:pr-3  sm:grid-cols-2  ">
+    <div className="cards grid lg:grid-cols-3 gap-5 w-full md:pl-4 md:pr-3  sm:grid-cols-2  ">
     {electronicsbrands.map((items)=>{
             return   <Card key={items.id}  imageSrc={items.image} heading={items.title.slice(0,20)} subheading={items.description.slice(0,76)} price={`$${items.price} dollars`}/>
         })}

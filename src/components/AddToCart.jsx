@@ -17,9 +17,6 @@ const AddToCart = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [headcount, setheadcount] = useState(0)
   const styleref = useRef()
-  const onCartButtonClick=()=>{
-styleref.current.style.opacity="100"
-  }
  
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -38,7 +35,9 @@ styleref.current.style.opacity="100"
   }, [selectedCategory, categories, setValue]);
 
   const handleCategoryChange = (e) => {
-    setSelectedCategory(e.target.value);
+    localStorage.setItem('category',e.target.value)
+    setSelectedCategory(localStorage.getItem('category'));
+   
   };
 
   const increaseCount = useCallback(() => {
@@ -108,7 +107,10 @@ setprodprice(e.target.value)
   
   const oncurrencychange=(e)=>{
     setconvertedcurrency(e.target.value)
-    setconvertedprice(prodprice*fetcheddata[convertedcurrency])
+    
+      }
+      const handleclick=()=>{
+        setconvertedprice(prodprice*fetcheddata[convertedcurrency])
       }
       const onprodchange=(e)=>{
     setproduct(e.target.value)
@@ -116,49 +118,53 @@ setprodprice(e.target.value)
       }
       console.log(300*fetcheddata[convertedcurrency]);
       
-  
+   const onCartButtonClick=()=>{
+styleref.current.style.display="block"
+styleref.current.style.transform=" transform: translateX(0px)"
+  }
+ 
         
     return (
         <div>
             <div className="header w-screen bg-gray-500">
-                <Head onCartButtonClick={onCartButtonClick} count={headcount}  />
+                <Head onCartButtonClick={onCartButtonClick} count={headcount}  prodprice={prodprice} prodquantity={prodquantity } product={product} handleprodChange={onprodchange} handlepriceChange={onpricechange} handlequanChange={onquantitychange} options={curencyoptions} ConvertedCurrency={convertedcurrency} handleoptionChange={oncurrencychange} convertedprice={convertedprice} handleconvertedChange={onconvertedchange} handleclick={handleclick} styleref={styleref} />
                </div>
-               <div className="forms flex justify-between w-screen ">
+               <div className="forms lg:flex lg:justify-between sm:grid sm:grid-cols-1 w-screen lg:mt-0 sm:mt-7 ">
                <form   onSubmit={handleSubmit(onSubmit)}>
-      <div className="p-6 w-3/5 ml-6 bg-white rounded-xl shadow-md space-y-4 mt-10 mb-10">
+      <div className="p-6 lg:w-[550px] ml-6 bg-white rounded-xl shadow-md space-y-4 lg:mt-10 lg:mb-10 sm:w-[250px]">
         
         {/* Category Select */}
         <div>
           <select
             {...register('category', { required: { value: true, message: 'This field is required' } })}
             onChange={handleCategoryChange}
-            className="border rounded-md p-2 w-full"
+            className="border rounded-md p-2 lg:w-full sm:w-[180px] lg:text-sm sm:text-[7px]"
             value={selectedCategory}
           >
             {categories.map((item) => (
-              <option key={item.id} value={item.title}>{item.title}</option>
+              <option className='lg:text-sm sm:text-[7px]' key={item.id} value={item.title}>{item.title}</option>
             ))}
           </select>
-          {errors.category && <span className='text-red-600'>{errors.category.message}</span>}
+          {errors.category && <span className='text-red-600 lg:text-lg sm:text-[7px]'>{errors.category.message}</span>}
         </div>
 
         {/* Product Name Input */}
         <div>
-          <label htmlFor="product-name" className="block text-sm font-medium text-gray-700">Product Name</label>
+          <label htmlFor="product-name" className="block lg:text-sm font-medium text-gray-700 sm:text-[8px]">Product Name</label>
           <input
             type="text"
             id="product-name"
             value={productName}
             onChange={(e) => setProductName(e.target.value)}
             {...register('Product', { required: { value: true, message: 'This field is required' } })}
-            className="mt-1 block w-full rounded-md p-2 border-transparent"
+            className="mt-1 block lg:w-full rounded-md p-2 border-transparent sm:w-[180px] lg:text-sm sm:text-[7px]"
           />
-          {errors.Product && <span className='text-red-600'>{errors.Product.message}</span>}
+          {errors.Product && <span className='text-red-600 lg:text-sm sm:text-[7px]'>{errors.Product.message}</span>}
         </div>
 
         {/* Price Input */}
         <div>
-          <label htmlFor="price" className="block text-sm font-medium text-gray-700">Price</label>
+          <label htmlFor="price" className="block lg:text-sm font-medium text-gray-700 sm:text-[8px]">Price</label>
           <input
             type="number"
             id="price"
@@ -167,9 +173,9 @@ setprodprice(e.target.value)
              }
             }
             {...register('Price', { required: { value: true, message: 'This field is required' } })}
-            className="mt-1 block w-full rounded-md p-2 bg-transparent border-transparent"
+            className="mt-1 block lg:w-full rounded-md p-2 bg-transparent border-transparent sm:w-[160px] lg:text-sm sm:text-[7px] "
           />
-          {errors.Price && <span className='text-red-600'>{errors.Price.message}</span>}
+          {errors.Price && <span className='text-red-600 lg:text-sm sm:text-[7px]'>{errors.Price.message}</span>}
         </div>
 
         {/* Quantity Counter */}
@@ -177,10 +183,10 @@ setprodprice(e.target.value)
           <button
             type="button"
             onClick={increaseCount}
-            className="p-2 bg-gray-300 rounded-md hover:bg-gray-400"
+            className="p-2 bg-gray-300 rounded-md hover:bg-gray-400 "
             
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24} fill="none">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24} fill="none" className='sm:h-[12px] sm:w-[12px] lg:h-[24px] lg:w-[24px]'>
               <path d="M12 4V20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M4 12H20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -188,7 +194,7 @@ setprodprice(e.target.value)
           <span className="text-xl font-semibold w-5">
             <input
               type="number"
-              className="w-16"
+              className="lg:w-16 sm:w-8 lg:text-sm sm:text-[12px]"
               onChange={(e) => {setCount(Number(e.target.value))
                
               }}
@@ -201,7 +207,7 @@ setprodprice(e.target.value)
             onClick={decreaseCount}
             className="p-2 bg-gray-300 rounded-md hover:bg-gray-400"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24} fill="none">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24} fill="none" className='sm:h-[12px] sm:w-[12px] lg:h-[24px] lg:w-[24px]'>
               <path d="M20 12L4 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
@@ -211,26 +217,22 @@ setprodprice(e.target.value)
         <input
           type="submit"
           value="Add to Cart"
-          className="mt-4 w-full bg-gray-400 text-white p-3 rounded-md hover:bg-gray-500 transition-colors cursor-pointer"
+          className="mt-4 lg:w-full bg-gray-400 text-white p-3 rounded-md lg:text-sm hover:bg-gray-500 transition-colors cursor-pointer sm:w-[160px] sm:text-[9px]"
         />
       </div>
     </form>
-    <div ref={styleref} className='h-screen w-2/6 bg-gray-100 border-2 text-center    opacity-0 mr-4'>
-    <div className="heading flex justify-between h-14 bg-gray-100 text-gray-600">
-      <div className="shopp text-xl font-serif ">Shopping Cart</div>
-      <button className='pt-1 pb-1 pl-1 pr-1 ' onClick={()=>styleref.current.style.opacity="0"}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24} color={"#000000"} fill={"none"}>
-    <path d="M18 6L12 12M12 12L6 18M12 12L18 18M12 12L6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-</svg></button>
-    </div>
+    
   
-    <ConfirmCart prodprice={prodprice} prodquantity={prodquantity } product={product} handleprodChange={onprodchange} handlepriceChange={onpricechange} handlequanChange={onquantitychange} options={curencyoptions} ConvertedCurrency={convertedcurrency} handleoptionChange={oncurrencychange} convertedprice={convertedprice} handleconvertedChange={onconvertedchange}/>
+     <ConfirmCart prodprice={prodprice} prodquantity={prodquantity } product={product} handleprodChange={onprodchange} handlepriceChange={onpricechange} handlequanChange={onquantitychange} options={curencyoptions} ConvertedCurrency={convertedcurrency} handleoptionChange={oncurrencychange} convertedprice={convertedprice} handleconvertedChange={onconvertedchange} handleclick={handleclick} styleref={styleref}/> 
     
    
-    </div>
+    
     </div>
    
             
             <Footer />
+          
+           
         </div>
     )
 }
