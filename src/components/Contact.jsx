@@ -18,7 +18,7 @@ const Contact = () => {
     }
     const onSubmit=(data)=>{
 console.log(data)
-alert('your form has been submitted')
+window.alert('your form has been submitted')
 setemail('')
 settext('')
 setfirst('')

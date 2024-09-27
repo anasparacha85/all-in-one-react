@@ -133,6 +133,7 @@ styleref.current.style.transform=" transform: translateX(0px)"
     setProductName('')
     setconvertedprice(null)
     setCount(0)
+    setheadcount(0)
     
 }  
     return (
