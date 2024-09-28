@@ -1,10 +1,11 @@
 // Card.js
 import React from 'react';
 import { Link,NavLink } from 'react-router-dom';
+import './card.css'
 
 const Card = ({ imageSrc, heading, subheading, price }) => {
   return (
-    <div className="lg:w-80 lg:h-auto mx-auto bg-white border border-gray-200 rounded-lg shadow-md lg-overflow-hidden group relative md:w-48 md:h-[280px] sm:w-[155px] sm:h-[200px] ">
+    <div className="lg:w-80 lg:h-auto mx-auto bg-white border border-gray-200 rounded-lg shadow-md lg-overflow-hidden group relative md:w-48 md:h-[280px] sm:w-[155px] sm:h-[200px] card ">
       {/* Button Section */}
       
       <button
